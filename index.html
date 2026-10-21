@@ -110,6 +110,7 @@ footer{padding:1rem 0 2.5rem;color:var(--muted);font-size:.95rem}
   <footer>The Shed Society. All gadgets shown are imaginary, and so are the dues.</footer>
 </main>
 <script>
+  (()=>{
 var G=[
 {n:"Gutter Gremlin",t:"Clears your gutters while you nap.",d:"A little crawler that rolls the length of the roofline, scoops out leaves, and chirps when it finishes. Members report spotless gutters and one very confused squirrel.",s:[["Reach","60 ft"],["Battery","3 storms"],["Verdict","Keep"]]},
 {n:"Sprinkler Sage",t:"Waters by reading the sky.",d:"Checks the forecast, the soil and the neighbors’ lawns, then waters only what’s thirsty. It once skipped a whole week and the tomatoes thanked it.",s:[["Zones","8"],["Saves","40% water"],["Verdict","Keep"]]},
@@ -131,6 +132,7 @@ document.getElementById("go").onclick=function(){
   var e=document.getElementById("email").value.trim(),m=document.getElementById("msg");
   m.textContent=/^\S+@\S+\.\S+$/.test(e)?"You’re in. Start picking your gadget.":"Enter a valid email so we can send the address.";
 };
+  })();
 </script>
 </body>
 </html>
