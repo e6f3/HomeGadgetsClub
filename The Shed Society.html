@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Shed Society: a club for backyard gadgets</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap">
+<style>
+:root{--bg:#dcebc8;--bg2:#d0e3b8;--surface:#fbfdf6;--ink:#1d3a24;--muted:#4a6650;--accent:#ffc929;--accent-ink:#1d3a24;--line:#b5cf9b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10261a;--bg2:#0d2016;--surface:#1a3a28;--ink:#e6f2e2;--muted:#a3bfa8;--line:#2f5a40}}
+:root[data-theme="dark"]{--bg:#10261a;--bg2:#0d2016;--surface:#1a3a28;--ink:#e6f2e2;--muted:#a3bfa8;--line:#2f5a40}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:repeating-linear-gradient(90deg,var(--bg) 0 3.5rem,var(--bg2) 3.5rem 7rem);color:var(--ink);font:400 1.0625rem/1.55 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-weight:800;line-height:1.05;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);max-width:11ch}
+h2{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:.5rem}
+p{max-width:60ch}
+.hero{padding:3.5rem 0 3rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,16rem);gap:2rem;align-items:center}
+.hero p{font-size:1.2rem;color:var(--muted);margin:1.25rem 0 1.75rem}
+.house{width:100%;height:auto}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font:700 1rem inherit;font-family:inherit;border:2px solid var(--ink);border-radius:.5rem;padding:.7rem 1.2rem;cursor:pointer;text-decoration:none;box-shadow:3px 3px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+:focus-visible{outline:3px solid #2f7de1;outline-offset:3px}
+section{padding:2.5rem 0}
+.lede{color:var(--muted);margin:0 0 1.5rem}
+.bench{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1rem;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:.5rem}
+.tab{text-align:left;font:700 1rem inherit;font-family:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:.5rem;padding:.7rem .9rem;cursor:pointer}
+.tab[aria-selected="true"]{border-color:var(--ink);background:var(--accent);color:var(--accent-ink);box-shadow:3px 3px 0 var(--ink)}
+.panel{background:var(--surface);border:2px solid var(--ink);border-radius:.5rem;padding:1.5rem;min-height:18rem}
+.panel h3{font-size:1.9rem;margin-bottom:.25rem}
+.tag{color:var(--muted);margin:0 0 1rem;font-style:italic}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:.75rem;margin:1.25rem 0 0;padding:0;list-style:none}
+.specs li{border-top:2px solid var(--line);padding-top:.5rem;font-size:.95rem}
+.specs b{display:block;font-size:1.3rem}
+.meet{display:grid;border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:1rem 0;border-bottom:2px solid var(--line)}
+.row b{font-size:1.15rem}
+.row span{color:var(--muted)}
+.join{background:var(--ink);color:var(--surface);border-radius:.75rem;padding:2rem;margin:2rem 0}
+:root[data-theme="dark"] .join,.join{--jfg:#fbfdf6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .join{background:#e6f2e2;color:#10261a;--jfg:#10261a}}
+.join p{opacity:.9}
+.join .line{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.join input{flex:1 1 14rem;font:inherit;padding:.7rem .9rem;border-radius:.5rem;border:2px solid currentColor;background:transparent;color:inherit}
+.join input::placeholder{color:inherit;opacity:.6}
+.join .btn{border-color:currentColor;color:#1d3a24;box-shadow:3px 3px 0 currentColor}
+#msg{margin-top:.75rem;min-height:1.5rem;font-weight:700}
+footer{padding:1rem 0 2.5rem;color:var(--muted);font-size:.95rem}
+@media (max-width:640px){.hero{grid-template-columns:1fr}.house{max-width:14rem}.bench{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto;padding-bottom:.4rem}.tab{white-space:nowrap}.row{grid-template-columns:1fr;gap:.2rem}.panel{min-height:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div>
+      <h1>The Shed Society</h1>
+      <p>We’re a club for people whose yards are full of clever things. Every month we haul one outdoor gadget onto the lawn, test it in real weather, and decide whether it earns a spot by the back door.</p>
+      <a class="btn" href="#join">Save me a chair</a>
+    </div>
+    <svg class="house" viewBox="0 0 200 180" role="img" aria-label="A small house with a tree and a sprinkler on the lawn">
+      <rect x="0" y="140" width="200" height="40" fill="#6aa84f"/>
+      <rect x="40" y="70" width="90" height="72" fill="#fbfdf6" stroke="#1d3a24" stroke-width="3"/>
+      <polygon points="30,72 85,28 140,72" fill="#ffc929" stroke="#1d3a24" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="74" y="100" width="22" height="42" fill="#1d3a24"/>
+      <rect x="50" y="88" width="16" height="16" fill="#9ed3f0" stroke="#1d3a24" stroke-width="2"/>
+      <rect x="104" y="88" width="16" height="16" fill="#9ed3f0" stroke="#1d3a24" stroke-width="2"/>
+      <rect x="164" y="104" width="8" height="38" fill="#7a5230"/>
+      <circle cx="168" cy="92" r="24" fill="#3f8a43" stroke="#1d3a24" stroke-width="3"/>
+      <path d="M12 142 q6 -22 18 -26 M12 142 q-2 -22 -14 -30 M12 142 q14 -12 28 -10" fill="none" stroke="#2f7de1" stroke-width="3" stroke-linecap="round"/>
+      <rect x="8" y="140" width="8" height="6" fill="#1d3a24"/>
+    </svg>
+  </header>
+
+  <section aria-labelledby="g">
+    <h2 id="g">On the patio table</h2>
+    <p class="lede">Six outdoor gadgets the members are arguing about right now. Pick one.</p>
+    <div class="bench">
+      <div class="tabs" role="tablist" aria-label="Gadgets"></div>
+      <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="m">
+    <h2 id="m">When we meet</h2>
+    <p class="lede">Everyone brings a gadget and a folding chair. Rain moves us onto the porch.</p>
+    <div class="meet">
+      <div class="row"><b>First Saturday</b><div><b>Show &amp; Grill</b><br><span>Members demo what they bought, and what they regret buying, over burgers.</span></div></div>
+      <div class="row"><b>Third Sunday</b><div><b>The Teardown</b><br><span>We open one device on a picnic blanket and name every part we can.</span></div></div>
+      <div class="row"><b>Last Thursday</b><div><b>Porch Court</b><br><span>Weather trials. Gadgets that fail in the first drizzle go back to the shed.</span></div></div>
+    </div>
+  </section>
+
+  <section class="join" id="join" aria-labelledby="j">
+    <h2 id="j">Join the shed</h2>
+    <p>Dues are one working gadget per year and a story about why you bought it. Leave your email and we’ll send the next backyard’s address.</p>
+    <div class="line">
+      <input id="email" type="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+      <button class="btn" id="go" type="button">Join the club</button>
+    </div>
+    <div id="msg" role="status"></div>
+  </section>
+
+  <footer>The Shed Society. All gadgets shown are imaginary, and so are the dues.</footer>
+</main>
+<script>
+var G=[
+{n:"Gutter Gremlin",t:"Clears your gutters while you nap.",d:"A little crawler that rolls the length of the roofline, scoops out leaves, and chirps when it finishes. Members report spotless gutters and one very confused squirrel.",s:[["Reach","60 ft"],["Battery","3 storms"],["Verdict","Keep"]]},
+{n:"Sprinkler Sage",t:"Waters by reading the sky.",d:"Checks the forecast, the soil and the neighbors’ lawns, then waters only what’s thirsty. It once skipped a whole week and the tomatoes thanked it.",s:[["Zones","8"],["Saves","40% water"],["Verdict","Keep"]]},
+{n:"Grill Whisperer",t:"Tells you when the steak is ready.",d:"A probe that texts you the exact minute to flip. Its sense of timing is perfect. Its habit of announcing “medium-rare, you’re welcome” is not.",s:[["Probes","4"],["Range","300 ft"],["Verdict","Keep"]]},
+{n:"Porchlight Pal",t:"A lamp that waves at neighbors.",d:"Spots people on the sidewalk and dims twice in greeting. Delivery drivers love it. Joggers are split, and one member’s mailman now waves back.",s:[["Lumens","600"],["Wave","2 dims"],["Verdict","Maybe"]]},
+{n:"Firepit Fred",t:"Snuffs itself when you leave.",d:"A firepit with a quiet sensor that smothers the flame once the last chair is empty. Safe, tidy, and a little sad about it every time.",s:[["Burn","4 hrs"],["Fuel","Gas"],["Verdict","Keep"]]},
+{n:"Mole Marshal",t:"A stake that hums moles away.",d:"Pushed into the lawn, it plays a low hum only underground creatures dislike. Lab results were mixed, and the moles seem to have formed a union.",s:[["Radius","30 ft"],["Solar","Yes"],["Verdict","Shed"]]}];
+var tabs=document.querySelector(".tabs"),panel=document.getElementById("panel");
+function show(i){
+  var g=G[i];
+  [].forEach.call(tabs.children,function(b,k){b.setAttribute("aria-selected",k===i)});
+  panel.innerHTML="<h3></h3><p class='tag'></p><p></p><ul class='specs'></ul>";
+  panel.children[0].textContent=g.n;panel.children[1].textContent=g.t;panel.children[2].textContent=g.d;
+  g.s.forEach(function(x){var li=document.createElement("li");li.innerHTML="<b></b><span></span>";li.firstChild.textContent=x[1];li.lastChild.textContent=x[0];panel.children[3].appendChild(li)});
+}
+G.forEach(function(g,i){var b=document.createElement("button");b.className="tab";b.type="button";b.setAttribute("role","tab");b.textContent=g.n;b.onclick=function(){show(i)};tabs.appendChild(b)});
+show(0);
+document.getElementById("go").onclick=function(){
+  var e=document.getElementById("email").value.trim(),m=document.getElementById("msg");
+  m.textContent=/^\S+@\S+\.\S+$/.test(e)?"You’re in. Start picking your gadget.":"Enter a valid email so we can send the address.";
+};
+</script>
+</body>
+</html>
